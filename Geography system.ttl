@@ -1,0 +1,404 @@
+@prefix : <http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/> .
+
+<http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4> rdf:type owl:Ontology ;
+                                                                          rdfs:comment "Geographic system" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/cityHasRiver
+:cityHasRiver rdf:type owl:ObjectProperty ;
+              owl:inverseOf :flowThroughOrNextToCity .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/countryhasRiver
+:countryhasRiver rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :flowsThroughCountry .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/exportationComesFrom
+:exportationComesFrom rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :exportationIsComeFrom ;
+                      rdfs:domain :Country ;
+                      rdfs:range :Exportation .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/exportationGoesTo
+:exportationGoesTo rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :exportationIsGoneFrom ;
+                   rdfs:domain :Exportation ;
+                   rdfs:range :Country .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/exportationIsComeFrom
+:exportationIsComeFrom rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/exportationIsGoneFrom
+:exportationIsGoneFrom rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/flowThroughOrNextToCity
+:flowThroughOrNextToCity rdf:type owl:ObjectProperty ;
+                         rdfs:domain :River ;
+                         rdfs:range :City .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/flowsThroughCountry
+:flowsThroughCountry rdf:type owl:ObjectProperty ;
+                     rdfs:domain :River ;
+                     rdfs:range :Country .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasBorderWith
+:hasBorderWith rdf:type owl:ObjectProperty ;
+               owl:inverseOf :inverseHasBorderWith ;
+               rdfs:domain :Country ;
+               rdfs:range :Country .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasCity
+:hasCity rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isCityOf ;
+         rdfs:domain :Country ;
+         rdfs:range :City .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasDistance
+:hasDistance rdf:type owl:ObjectProperty ;
+             owl:inverseOf :isDistanceOf ;
+             rdfs:domain :City ;
+             rdfs:range :Distance .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasGDP
+:hasGDP rdf:type owl:ObjectProperty ;
+        owl:inverseOf :isGDPof ;
+        rdfs:domain :Country ;
+        rdfs:range :GDP .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/inverseHasBorderWith
+:inverseHasBorderWith rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/isCityOf
+:isCityOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/isDistanceOf
+:isDistanceOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/isGDPof
+:isGDPof rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/isParticipationOf
+:isParticipationOf rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :startedParticipation .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/startedParticipation
+:startedParticipation rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Country ;
+                      rdfs:range :ParticipationInGlobalOrganization .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/cityHasPopulation
+:cityHasPopulation rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :City ;
+                   rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/countryHasPopulation
+:countryHasPopulation rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain :Country ;
+                      rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/estuaryIn
+:estuaryIn rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :River ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasAmount
+:hasAmount rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :GDP ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasGlobalOrganization
+:hasGlobalOrganization rdf:type owl:DatatypeProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain :ParticipationInGlobalOrganization ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasLength
+:hasLength rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :River ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasSize
+:hasSize rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :Country ;
+         rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasWorth
+:hasWorth rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Exportation ;
+          rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/hasYear
+:hasYear rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :GDP ;
+         rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/isCapital
+:isCapital rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :City ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/isDistance
+:isDistance rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Distance ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/isKind
+:isKind rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:domain :Exportation ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/startedInYear
+:startedInYear rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :ParticipationInGlobalOrganization ;
+               rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :isCityOf ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Country
+                      ] .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasBorderWith ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Country
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasGDP ;
+                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :GDP
+                         ] .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Distance
+:Distance rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Exportation
+:Exportation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/GDP
+:GDP rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/ParticipationInGlobalOrganization
+:ParticipationInGlobalOrganization rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/River
+:River rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4#NATO_Austria
+:NATO_Austria rdf:type owl:NamedIndividual ;
+              :hasGlobalOrganization "NATO" ;
+              :startedInYear 1975 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4#Rodan
+:Rodan rdf:type owl:NamedIndividual ;
+       :flowsThroughCountry :France ;
+       :estuaryIn "Mediterranean sea" ;
+       :hasLength 330 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Athens
+:Athens rdf:type owl:NamedIndividual ;
+        :cityHasPopulation 4 ;
+        :isCapital "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Austria
+:Austria rdf:type owl:NamedIndividual ;
+         :hasBorderWith :France ,
+                        :Greece ;
+         :startedParticipation :NATO_Austria ;
+         :countryHasPopulation 9 ;
+         :hasSize 83 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Distance_Madrid_Paris
+:Distance_Madrid_Paris rdf:type owl:NamedIndividual ;
+                       :isDistanceOf :Paris ;
+                       :isDistance 450 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/EU_France
+:EU_France rdf:type owl:NamedIndividual ;
+           :hasGlobalOrganization "European Union" ;
+           :startedInYear 1952 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/EU_Greece
+:EU_Greece rdf:type owl:NamedIndividual ;
+           :hasGlobalOrganization "European Union" ;
+           :startedInYear 1981 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Evros
+:Evros rdf:type owl:NamedIndividual ;
+       :flowsThroughCountry :Greece ;
+       :estuaryIn "Aegean sea" ;
+       :hasLength 480 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Exportation_GreeceToFrance
+:Exportation_GreeceToFrance rdf:type owl:NamedIndividual ;
+                            :exportationGoesTo :France ;
+                            :hasWorth 1 ;
+                            :isKind "olive oil" .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Exportation_SpainToFrance
+:Exportation_SpainToFrance rdf:type owl:NamedIndividual ;
+                           :exportationGoesTo :France ;
+                           :hasWorth 2 ;
+                           :isKind "car" .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/France
+:France rdf:type owl:NamedIndividual ;
+        :hasCity :Paris ;
+        :hasGDP :GDP_France ;
+        :startedParticipation :EU_France ;
+        :countryHasPopulation 80 ;
+        :hasSize 551 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/GDP_France
+:GDP_France rdf:type owl:NamedIndividual ;
+            :hasAmount 3000 ;
+            :hasYear 2021 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/GDP_Spain
+:GDP_Spain rdf:type owl:NamedIndividual ;
+           :hasAmount 1427 ;
+           :hasYear 2021 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Greece
+:Greece rdf:type owl:NamedIndividual ;
+        :exportationComesFrom :Exportation_GreeceToFrance ;
+        :hasCity :Athens ;
+        :startedParticipation :EU_Greece ;
+        :countryHasPopulation 10 ;
+        :hasSize 131 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Madrid
+:Madrid rdf:type owl:NamedIndividual ;
+        :hasDistance :Distance_Madrid_Paris ;
+        :cityHasPopulation 6 ;
+        :isCapital "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Paris
+:Paris rdf:type owl:NamedIndividual ;
+       :cityHasPopulation 9 ;
+       :isCapital "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Spain
+:Spain rdf:type owl:NamedIndividual ;
+       :exportationComesFrom :Exportation_SpainToFrance ;
+       :hasCity :Madrid ;
+       :hasGDP :GDP_Spain ;
+       :countryHasPopulation 60 ;
+       :hasSize 504 .
+
+
+###  http://www.semanticweb.org/axill/ontologies/2023/3/untitled-ontology-4/Tinto
+:Tinto rdf:type owl:NamedIndividual ;
+       :flowThroughOrNextToCity :Madrid ;
+       :flowsThroughCountry :Spain ;
+       :estuaryIn "Atlantic ocean" ;
+       :hasLength 800 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :City
+                :Country
+                :Distance
+                :Exportation
+                :GDP
+                :ParticipationInGlobalOrganization
+                :River
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
