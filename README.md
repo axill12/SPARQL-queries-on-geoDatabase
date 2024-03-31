@@ -1,4 +1,4 @@
-This project includes some queries in SPARQL on a geographical database i created. Insertion of data and queries were realized in Protege.
+This project includes some queries in SPARQL on a geographical database i created. Insertion of data and queries were realized in Protege. These databases store their data in owl, rdf and rdfs.
 
 With query in image with name "Austria has borders with countries" i asked with which countries Austria has borders.
 
